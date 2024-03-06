@@ -62,4 +62,33 @@ voir comment elle fonctionne !
 ## mise en page -> Layout
 * layout.tsx fichier spécial pour créer une interface utilisateur partagée entre
   plusieurs pages.
-* L'un des avantages de l'utilisation des mises en page dans Next.js est que lors de la navigation, seuls les composants de la page sont mis à jour tandis que la mise en page ne sera pas restituée. C'est ce qu'on appelle le rendu partiel :
+* L'un des avantages de l'utilisation des mises en page dans Next.js est que
+  lors de la navigation, seuls les composants de la page sont mis à jour tandis
+  que la mise en page ne sera pas restituée. C'est ce qu'on appelle le rendu
+  partiel :
+
+## Navigation entre les pages
+*  le composant <Link /> pour créer des liens entre les pages de votre
+   application. <Link>vous permet d'effectuer une navigation côté client avec
+   JavaScript.
+-> import Link from 'next/link';
+-> <Link href={link.href} ... >....</Link>
+
+Comme vous pouvez le voir, le Linkcomposant est similaire à l'utilisation <a>de balises, mais au lieu de <a href="…">, vous utilisez <Link href="…">.
+
+## Division automatique du code et prélecture
+* Diviser le code par itinéraires signifie que les pages sont isolées. Si une
+  certaine page génère une erreur, le reste de l'application fonctionnera
+  toujours.
+* De plus, en production, chaque fois que <Link>des composants apparaissent dans
+  la fenêtre d'affichage du navigateur, Next.js pré-extrait automatiquement le
+  code de l'itinéraire lié en arrière-plan. Au moment où l'utilisateur clique
+  sur le lien, le code de la page de destination sera déjà chargé en
+  arrière-plan, et c'est ce qui rend la transition de page quasi instantanée !
+
+## Affichage des liens actifs
+Un modèle d'interface utilisateur courant consiste à afficher un lien actif pour indiquer à l'utilisateur sur quelle page il se trouve actuellement. Pour ce faire, vous devez obtenir le chemin actuel de l'utilisateur à partir de l'URL. Next.js fournit un hook appelé usePathname()que vous pouvez utiliser pour vérifier le chemin et implémenter ce modèle.
+
+DepuisusePathname()est un hook, vous devrez le transformer nav-links.tsxen
+composant client. Ajoutez la directive de React "use client"en haut du fichier,
+puis importez usePathname()depuisnext/navigation :
