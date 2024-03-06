@@ -58,3 +58,8 @@ voir comment elle fonctionne !
 * # avec NExT, les routes sont définies dans de dossiers, par exemple si je veux avoir la route /voiture, je dois crée un dossier voiture et après j'ajoute un fichier page.tsx,
 * lorsque j'appelle /voiture, il appelera le fichier page.tsx qui est dans le
   dossier voiture
+
+## mise en page -> Layout
+* layout.tsx fichier spécial pour créer une interface utilisateur partagée entre
+  plusieurs pages.
+* L'un des avantages de l'utilisation des mises en page dans Next.js est que lors de la navigation, seuls les composants de la page sont mis à jour tandis que la mise en page ne sera pas restituée. C'est ce qu'on appelle le rendu partiel :
